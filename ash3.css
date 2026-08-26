@@ -68,8 +68,8 @@
   pointer-events: none;
   transition: all .7s cubic-bezier(0.25, 1, 0.5, 1);
 }
-.sov1 { background: #1d2a64; opacity: 0; }
-.sov2 { background: #541d64; opacity: 0; transform: translateX(-100%); }
+.sov1 { background: #1d2a6491; opacity: 0; }
+.sov2 { background: #7b76b696; opacity: 0; transform: translateX(-100%); }
 .sov3 { background: #1d5864; opacity: 0; transform: translateY(100%) rotate(15deg) scale(1.2); }
 
 .st, .sb {
