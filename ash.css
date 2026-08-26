@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@400;700&display=swap');
+
+.sw {
+  width: 400px;
+  height: 280px;
+  margin: 15px auto;
+  position: relative;
+  font-family: "Stardos Stencil", system-ui;
+  font-weight: 700;
+  box-sizing: border-box;
+  padding: 15px;
+}
+
+.bl, .br {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: #3d4a5e;
+}
+.bl { left: 0; }
+.br { right: 0; }
+
+.bt, .bb {
+  position: absolute;
+  height: 1px;
+  width: 28%;
+  background: #3d4a5e;
+}
+.bt { top: 0; }
+.bb { bottom: 0; }
+.bt.l, .bb.l { left: 0; }
+.bt.r, .bb.r { right: 0; }
+
+.si {
+  width: 100%;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* GIF Base y Hover */
+.simg, .simg2 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity .6s ease, transform .6s ease;
+}
+.simg {
+  background: url('https://64.media.tumblr.com/2b99b88463bf8bb359aa84a707513e88/80562f2a001727de-04/s540x810/a799109b905621ab1e9a1e6e64839da8d8e744d3.gif') center/cover;
+  opacity: 1;
+}
+.simg2 {
+  background: url('https://64.media.tumblr.com/20d36a0f1b7750a808ebe6168ca14159/80562f2a001727de-24/s540x810/5e1c60ea32e3b0189d3270dafe1ef3f6b245d020.gif') center/cover;
+  opacity: 0;
+}
+
+/* Capas de color en Multiply */
+.sov1, .sov2, .sov3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  transition: all .7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.sov1 { background: #1d2a64; opacity: 0; }
+.sov2 { background: #541d64; opacity: 0; transform: translateX(-100%); }
+.sov3 { background: #1d5864; opacity: 0; transform: translateY(100%) rotate(15deg) scale(1.2); }
+
+.st, .sb {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #d0d7de;
+  z-index: 10;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.st { top: -5px; }
+.sb { bottom: -5px; }
+
+/* Texto Contenedor */
+.shov {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #fff;
+  text-transform: uppercase;
+  z-index: 5;
+  pointer-events: none;
+  text-shadow: 0 0 8px rgba(0,0,0,.8);
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.shov span {
+  display: inline-block;
+  opacity: 0;
+}
+
+/* Animación: Aparición suave -> Lectura -> Desaparición aleatoria cayendo */
+@keyframes fadeRandomOut {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: scale(1.05);
+  }
+  20% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: scale(1);
+  }
+  65% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(16px);
+  }
+}
+
+/* Hover */
+.sw:hover .simg { opacity: 0; transform: scale(1.03); }
+.sw:hover .simg2 { opacity: 1; transform: scale(1.03); }
+.sw:hover .sov1 { opacity: .8; }
+.sw:hover .sov2 { opacity: .85; transform: translateX(0); transition-delay: .1s; }
+.sw:hover .sov3 { opacity: .75; transform: translateY(0) rotate(0deg) scale(1); transition-delay: .25s; }
+
+.sw:hover .shov span {
+  animation: fadeRandomOut 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Tiempos de desincronización por palabra */
+.sw:hover .shov .w1 { animation-delay: 0.2s; }
+.sw:hover .shov .w2 { animation-delay: 0.5s; }
+.sw:hover .shov .w3 { animation-delay: 0.1s; }
+.sw:hover .shov .w4 { animation-delay: 0.6s; }
+.sw:hover .shov .w5 { animation-delay: 0.3s; }
+.sw:hover .shov .w6 { animation-delay: 0.4s; }
