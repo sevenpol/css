@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Jacquard+24&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0a0a0a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+.fae-card-container {
+  position: relative;
+  height: 250px;
+  width: 380px;
+  max-width: 90vw;
+  border-radius: 0;
+  padding: 8px;
+  background-color: #121212;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.8);
+  margin: 0 auto;
+}
+
+/* MARCO 1: Degradado inicial */
+.fae-card-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  background: linear-gradient(135deg, #a4768d, #636b82, #987bbe) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  transition: opacity 0.4s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* MARCO 2: Color hover #7e6887cc */
+.fae-card-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  background: #7e6887cc border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.fae-card-container:hover::before {
+  opacity: 0;
+}
+
+.fae-card-container:hover::after {
+  opacity: 1;
+}
+
+.fae-media-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 0;
+  background-color: #000;
+}
+
+.fae-img-visible,
+.fae-img-hover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+  transition: opacity 0.6s ease;
+  filter: grayscale(100%) brightness(60%);
+}
+
+.fae-img-visible {
+  z-index: 1;
+  opacity: 1;
+}
+
+.fae-img-hover {
+  z-index: 2;
+  opacity: 0;
+}
+
+.fae-card-container:hover .fae-img-visible {
+  opacity: 0;
+}
+
+.fae-card-container:hover .fae-img-hover {
+  opacity: 1;
+}
+
+.fae-sweep-overlay {
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 150%;
+  height: 100%;
+  background: linear-gradient(
+    90deg, 
+    #ffffff 0%, 
+    rgba(175, 100, 145, 0.95) 25%, 
+    rgba(126, 45, 130, 0.95) 50%, 
+    rgba(101, 75, 175, 0.95) 75%, 
+    #ffffff 100%
+  );
+  mix-blend-mode: multiply;
+  opacity: 0.85;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.fae-card-container:hover .fae-sweep-overlay {
+  animation: faeSweepEffect 1.8s ease-in-out forwards;
+}
+
+@keyframes faeSweepEffect {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+.fae-text-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.25) 50%, transparent 100%);
+  pointer-events: none;
+}
+
+.fae-phrase-container {
+  position: relative;
+  min-height: 80px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.fae-phrase-1,
+.fae-phrase-2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
+.fae-phrase-1 {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateY(0);
+  text-align: left;
+  transition: filter 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+}
+
+.fae-card-container:hover .fae-phrase-1 {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(-6px);
+}
+
+.fae-phrase-2 {
+  opacity: 0;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.fae-phrase-2 .fae-phrase-2-line1 {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(6px);
+  transition: opacity 0.5s ease 0.1s, filter 0.5s ease 0.1s, transform 0.5s ease 0.1s;
+}
+
+.fae-phrase-2 .fae-phrase-2-line2 {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(6px);
+  transition: opacity 0.5s ease 0.35s, filter 0.5s ease 0.35s, transform 0.5s ease 0.35s;
+}
+
+.fae-phrase-2 .fae-phrase-2-line3 {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(6px);
+  transition: opacity 0.5s ease 0.65s, filter 0.5s ease 0.65s, transform 0.5s ease 0.65s;
+}
+
+.fae-card-container:hover .fae-phrase-2 {
+  opacity: 1;
+}
+
+.fae-card-container:hover .fae-phrase-2 .fae-phrase-2-line1,
+.fae-card-container:hover .fae-phrase-2 .fae-phrase-2-line2,
+.fae-card-container:hover .fae-phrase-2 .fae-phrase-2-line3 {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translateY(0);
+}
+
+.fae-accent-text {
+  font-family: 'Jacquard 24', cursive;
+  font-size: 2.2rem;
+  line-height: 1;
+  display: block;
+  letter-spacing: -1px;
+}
+
+.fae-stroke-text {
+  color: transparent;
+  -webkit-text-stroke: 1px #7e6887cc;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9), 0 0 10px rgba(126, 104, 135, 0.3);
+}
+
+.fae-sans-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.55rem;
+  font-weight: 400;
+  color: #a1a0a0;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+  margin-bottom: 1px;
+}
+
+.fae-underline-text {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: #7e6887cc;
+}
