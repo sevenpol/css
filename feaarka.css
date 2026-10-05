@@ -20,7 +20,7 @@
 .fae-p1,.fae-p2{position:absolute;bottom:0;left:0;right:0;width:100%}
 .fae-p1{opacity:1;filter:blur(0);transform:translateY(0);text-align:left;transition:filter .4s ease,opacity .4s ease,transform .4s ease}
 .fae-c:hover .fae-p1{opacity:0;filter:blur(8px);transform:translateY(-6px)}
-.fae-p2{opacity:0;text-align:right;display:flex;flex-direction:column;align-items:flex-end}
+.fae-p2{opacity:0;text-align:right;display:flex;flex-direction:column;align-items:flex-end    margin-bottom: 30px;line-height: 15px;}
 .fae-p2 .fae-l1{opacity:0;filter:blur(8px);transform:translateY(6px);transition:opacity .5s ease .1s,filter .5s ease .1s,transform .5s ease .1s}
 .fae-p2 .fae-l2{opacity:0;filter:blur(8px);transform:translateY(6px);transition:opacity .5s ease .35s,filter .5s ease .35s,transform .5s ease .35s}
 .fae-p2 .fae-l3{opacity:0;filter:blur(8px);transform:translateY(6px);transition:opacity .5s ease .65s,filter .5s ease .65s,transform .5s ease .65s}
@@ -28,5 +28,5 @@
 .fae-c:hover .fae-p2 .fae-l1,.fae-c:hover .fae-p2 .fae-l2,.fae-c:hover .fae-p2 .fae-l3{opacity:1;filter:blur(0);transform:translateY(0)}
 .fae-a{font-family:'Jacquard 24',cursive;font-size:2.2rem;line-height:1;display:block;letter-spacing:-1px}
 .fae-k{color:transparent;-webkit-text-stroke:1px #7e6887cc;text-shadow:1px 1px 2px rgba(0,0,0,.9),0 0 10px rgba(126,104,135,.3)}
-.fae-x{font-family:'Inter',sans-serif;font-size:.65rem;font-weight:400;color:#a1a0a0;display:block;text-transform:uppercase;letter-spacing:.5px;text-shadow:0 1px 4px rgba(0,0,0,.9);margin-bottom:2px}
+.fae-x{font-family:'Inter',sans-serif;font-size:.05rem;font-weight:400;color:#a1a0a0;display:block;text-transform:uppercase;letter-spacing:.5px;text-shadow:0 1px 4px rgba(0,0,0,.9);margin-bottom:2px}
 .fae-u{text-decoration:underline;text-underline-offset:2px;text-decoration-color:#7e6887cc}
