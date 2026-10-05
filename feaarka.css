@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Jacquard+24&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+.fae-c{position:relative;height:250px;width:380px;max-width:90vw;padding:8px;background:#121212;cursor:pointer;overflow:hidden;box-shadow:0 12px 35px rgba(0,0,0,.8);margin:0 auto}
+.fae-c::before{content:'';position:absolute;inset:0;border:1px solid transparent;border-image:linear-gradient(135deg,#a4768d,#636b82,#987bbe) 1;transition:opacity .4s ease;z-index:10;pointer-events:none}
+.fae-c::after{content:'';position:absolute;inset:0;border:1px solid #7e6887cc;opacity:0;transition:opacity .4s ease;z-index:10;pointer-events:none}
+.fae-c:hover::before{opacity:0}
+.fae-c:hover::after{opacity:1}
+.fae-m{position:relative;width:100%;height:100%;overflow:hidden;background:#000;border:1px solid rgba(255,255,255,.15);transition:border-color .4s ease}
+.fae-c:hover .fae-m{border-color:rgba(126,104,135,.4)}
+.fae-v,.fae-h{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:opacity .6s ease;filter:grayscale(100%) brightness(60%)}
+.fae-v{z-index:1;opacity:1}
+.fae-h{z-index:2;opacity:0}
+.fae-c:hover .fae-v{opacity:0}
+.fae-c:hover .fae-h{opacity:1}
+.fae-s{position:absolute;top:0;left:-150%;width:150%;height:100%;background:linear-gradient(90deg,#fff 0%,rgba(175,100,145,.95) 25%,rgba(126,45,130,.95) 50%,rgba(101,75,175,.95) 75%,#fff 100%);mix-blend-mode:multiply;opacity:.85;z-index:3;pointer-events:none}
+.fae-c:hover .fae-s{animation:faeS 1.8s ease-in-out forwards}
+@keyframes faeS{0%{left:-150%}100%{left:150%}}
+.fae-t{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.25) 50%,transparent 100%);pointer-events:none}
+.fae-p{position:relative;min-height:80px;display:flex;align-items:flex-end}
+.fae-p1,.fae-p2{position:absolute;bottom:0;left:0;right:0;width:100%}
+.fae-p1{opacity:1;filter:blur(0);transform:translateY(0);text-align:left;transition:filter .4s ease,opacity .4s ease,transform .4s ease}
+.fae-c:hover .fae-p1{opacity:0;filter:blur(8px);transform:translateY(-6px)}
+.fae-p2{opacity:0;text-align:right;display:flex;flex-direction:column;align-items:flex-end}
+.fae-p2 .fae-l1{opacity:0;filter:blur(8px);transform:translateY(6px);transition:opacity .5s ease .1s,filter .5s ease .1s,transform .5s ease .1s}
+.fae-p2 .fae-l2{opacity:0;filter:blur(8px);transform:translateY(6px);transition:opacity .5s ease .35s,filter .5s ease .35s,transform .5s ease .35s}
+.fae-p2 .fae-l3{opacity:0;filter:blur(8px);transform:translateY(6px);transition:opacity .5s ease .65s,filter .5s ease .65s,transform .5s ease .65s}
+.fae-c:hover .fae-p2{opacity:1}
+.fae-c:hover .fae-p2 .fae-l1,.fae-c:hover .fae-p2 .fae-l2,.fae-c:hover .fae-p2 .fae-l3{opacity:1;filter:blur(0);transform:translateY(0)}
+.fae-a{font-family:'Jacquard 24',cursive;font-size:2.2rem;line-height:1;display:block;letter-spacing:-1px}
+.fae-k{color:transparent;-webkit-text-stroke:1px #7e6887cc;text-shadow:1px 1px 2px rgba(0,0,0,.9),0 0 10px rgba(126,104,135,.3)}
+.fae-x{font-family:'Inter',sans-serif;font-size:.65rem;font-weight:400;color:#a1a0a0;display:block;text-transform:uppercase;letter-spacing:.5px;text-shadow:0 1px 4px rgba(0,0,0,.9);margin-bottom:2px}
+.fae-u{text-decoration:underline;text-underline-offset:2px;text-decoration-color:#7e6887cc}
